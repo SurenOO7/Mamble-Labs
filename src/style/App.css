@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
+.EmptyListLight {
+  font-family: Poppins !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 24px !important;
+  line-height: 36px !important;
+  color: #ACACAC !important;
+}
+
+.EmptyListBold {
+  font-family: Poppins !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 36px !important;
+  line-height: 54px !important;
+  color: #666666 !important;
+}
+/*# sourceMappingURL=App.css.map */
