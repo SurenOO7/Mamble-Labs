@@ -1,18 +1,18 @@
 import React from 'react'
-import { TextField, Box, Grid, Button, Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 
 export default function MyButton(props) {
-  console.log(props)
   return (
     <Button
-    disabled={props.disabled}
-      // {...props.disabled && disabled}
+      disabled={props.disabled}
       variant="contained"
       color="primary"
+      className='btn'
       onClick={props.onClick}
       type={props.type}
+      stre
       >
-       Click me
+        <Typography className={`btnTxt ${props.className && props.className}`}>{props.name}</Typography>
     </Button>
   )
 }
