@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { TextField, Box, Grid, Typography, InputAdornment, IconButton } from '@mui/material';
-import { withStyles } from '@material-ui/core';
+import { TextField, Box, Grid, Typography, InputAdornment, IconButton, InputBase } from '@mui/material';
 import MyButton from './MyButton';
 import ClearIcon from '@mui/icons-material/Clear';
 
@@ -17,11 +16,7 @@ const initialValue = {
 const [toDoTask, settoDoTask] = useState(initialValue);
 const [isDisabled, setisDisabled] = useState(true);
 const [errors, setErrors] = useState({});
-// const inputRef = useRef();
 const [focused, setFocused] = React.useState(false)
-const onFocus = () => setFocused(true)
-const onBlur = () => setFocused(false)
-
 const isValid = (text) => {
   const validEerrors = {};
   if (text.length > 54 && text.length !== 0) {
@@ -46,56 +41,26 @@ const handleSubmit = (e) => {
   settoDoTask(initialValue);
   setisDisabled(true);
 }
-
-
-const TextFieldColor = "#FFCD04"
-
-const CssTextField = withStyles({
-  root: {
-    '& label.Mui-focused': {
-      color: TextFieldColor,
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: TextFieldColor,
-        padding: "0px"
-      },
-      '&:hover fieldset': {
-        borderColor: TextFieldColor,
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: TextFieldColor,
-        borderWidth: '1px',
-      },
-    },
-  },
-})(TextField);
   return (
           <Grid container justifyContent="center" direction="column">
-              <Typography className='header'>Task</Typography>
+              <Typography variant="body2">Task</Typography>
               <Grid>
                 <form onSubmit={handleSubmit}>
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={9}>
                       <Box > 
                         <TextField
+                          required
                           sx={{height: "100%"}}
                           fullWidth
                           error = {Object.keys(errors).length > 0 ? true : false}
-                          onFocus={onFocus}
-                          onBlur={onBlur}
-                          // ref={inputRef}
-                          // sx={{width: "954px"}}
                           color="secondary"
                           value={toDoTask.task}
                           onChange={handleChange}
-                          // focused={true}
                           placeholder={focused ? '' : 'Write here'}
                           variant="outlined"
-                          required
                           helperText={errors.textLength}
                           size='medium'
-                          
                           InputProps={Boolean(focused || toDoTask.task) && {
                             endAdornment: <InputAdornment position="end">
                               <IconButton color="primary" component="span" onClick={() => {

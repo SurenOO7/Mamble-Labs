@@ -3,31 +3,30 @@ import React, { useEffect, useState } from 'react'
 import ClearIcon from '@mui/icons-material/Clear';
 
 export default function ToDoList(props) {
-    const initialValue = props.hide ? props.List : props.List.filter(item => !item.completed)
-    const [toDoList, setToDoList] = useState(initialValue)
+    const initialValue = props.hide ? props.List : props.List.filter(item => !item.completed);
+    const [toDoList, setToDoList] = useState(initialValue);
     const [openDialog, setOpenDialog] = useState({open: false, id: ""});
 
     const deleteTheTask = (id) => {  
-        const newList = toDoList.filter(task => {
-            return task.id !== id
+        const newList = props.List.filter(task => {
+            return task.id !== id;
         })
-        setToDoList(newList)
-        props.remove(newList)
+        props.remove(newList);
     }
 
     const handleChange = (e, id) => {
         const newList2 = props.List.map(task => {
-            return task.id === id ? { ...task, completed: !task.completed } : task
+            return task.id === id ? { ...task, completed: !task.completed } : task;
         })
         setToDoList(newList2)
         props.remove(newList2)
     }
 
     useEffect(() => {
-        props.hide ? setToDoList(props.List.filter(item => !item.completed)) : setToDoList(props.List)
+        props.hide ? setToDoList(props.List.filter(item => !item.completed)) : setToDoList(props.List);
     }, [props.hide])
     useEffect(() => {
-        props.hide ? setToDoList(props.List.filter(item => !item.completed)) : setToDoList(props.List)
+        props.hide ? setToDoList(props.List.filter(item => !item.completed)) : setToDoList(props.List);
     }, [props.List])
   return (
     <>
@@ -39,14 +38,14 @@ export default function ToDoList(props) {
                 <Grid container justifyContent="center">
                     <Button
                         onClick={() => {
-                            deleteTheTask(openDialog.id)
-                            setOpenDialog({open: false, id: ""})
+                            deleteTheTask(openDialog.id);
+                            setOpenDialog({open: false, id: ""});
                         }}>
                         <Typography sx={{color: "#174348"}}>Yes</Typography>
                     </Button>
                     <Button
                         onClick={() => {
-                            setOpenDialog({open: false, id: ""})
+                            setOpenDialog({open: false, id: ""});
                         }}>
                         <Typography sx={{color: "#174348"}}>No</Typography>
                     </Button>
@@ -71,7 +70,7 @@ export default function ToDoList(props) {
                                         </Box>                               
                                     </Grid>
                                     <Grid item >
-                                        <Typography className={`taskText ${item.completed && 'checked'}`}>
+                                        <Typography variant="body2" className={`taskText ${item.completed && 'checked'}`}>
                                             {item.task}
                                         </Typography>
                                     </Grid>

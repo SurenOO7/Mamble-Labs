@@ -10,9 +10,8 @@ export default function MyButton(props) {
       className='btn'
       onClick={props.onClick}
       type={props.type}
-      stre
       >
-        <Typography className={`btnTxt ${props.className && props.className}`}>{props.name}</Typography>
+        <Typography variant="body2" className="btnTxt">{props.name}</Typography>
     </Button>
   )
 }

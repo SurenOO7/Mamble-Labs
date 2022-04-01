@@ -7,12 +7,27 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
   typography: {
-    "fontFamily": `Poppins`,
-    "fontWeightLight": 400,
-    "fontWeightRegular": 500,
-    "fontWeightMedium": 600,
+    fontFamily: "Poppins",
+    h3: {
+      fontSize: "1.3rem",
+      fontWeight: 500,
+      color: "#666666",
+    },
+    h5: {
+      fontSize: "0.8rem",
+      fontWeight: 500,
+      color: "#ACACAC ",
+  },
+  body1: {
+      fontSize: "1.1rem",
+      fontWeight: 500,
+  },
+  body2: {
+    fontSize: "1.1rem",
+    fontWeight: 400,
+  },
     button: {
-      textTransform: 'none'
+      textTransform: 'none',
     }
   },
   palette: {
